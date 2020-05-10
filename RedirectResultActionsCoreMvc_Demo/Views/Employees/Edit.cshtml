@@ -1,0 +1,70 @@
+﻿@model RedirectResultActionsCoreMvc_Demo.Models.Employee
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="card rounded-0">
+    <div class="card-header bg-primary text-white">
+        <h4 class="text-uppercase">Edit Employee</h4>
+    </div>
+    <div class="card-body">
+        <form asp-action="Edit">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Age" class="control-label"></label>
+                        <input asp-for="Age" class="form-control" />
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Office" class="control-label"></label>
+                        <input asp-for="Office" class="form-control" />
+                        <span asp-validation-for="Office" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Position" class="control-label"></label>
+                        <input asp-for="Position" class="form-control" />
+                        <span asp-validation-for="Position" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Salary" class="control-label"></label>
+                        <input asp-for="Salary" class="form-control" />
+                        <span asp-validation-for="Salary" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="DepartmentId" class="control-label"></label>
+                        <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-sm btn-primary rounded-0" />
+                <a asp-action="Index" class="btn btn-sm btn-primary rounded-0">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

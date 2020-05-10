@@ -1,0 +1,31 @@
+﻿@model IEnumerable<RedirectResultActionsCoreMvc_Demo.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3 class="text-uppercase text-center">List of department</h3>
+
+<p><a asp-action="Create" class="btn btn-primary rounded-0">Add New</a></p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>Action(s)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">@item.Name</a>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-info rounded-0">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger rounded-0">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
